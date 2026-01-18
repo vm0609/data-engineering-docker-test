@@ -1,0 +1,19 @@
+select * from
+(
+		select 
+			b."Zone" PickupZone ,
+	
+		c."Zone" DropOffZone ,
+	   a.tip_amount 		
+	
+		from
+		public."green_taxi_Nov2025" a ,
+		public."taxi_zone_lookup"   b ,
+		public."taxi_zone_lookup"   c
+		where a."PULocationID" = b."LocationID"
+		and   a."DOLocationID" = c."LocationID"
+		and b."Zone" = 'East Harlem North'
+		  
+		)
+		order by tip_amount desc
+        LIMIT 1;

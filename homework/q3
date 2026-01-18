@@ -1,0 +1,2 @@
+ select count(*) from public."green_taxi_Nov2025"
+  where trip_distance <=1

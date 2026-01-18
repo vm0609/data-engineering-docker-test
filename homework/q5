@@ -1,0 +1,11 @@
+select * from
+(
+		select sum(a.total_amount) total_amt ,b."Zone"
+		from
+		public."green_taxi_Nov2025" a ,
+		public."taxi_zone_lookup"   b
+		where a."PULocationID" = b."LocationID"
+		and DATE(a.lpep_pickup_datetime) = '18-NOV-2025'
+		group by b."Zone"
+)order by total_amt desc
+LIMIT 1;

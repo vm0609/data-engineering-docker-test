@@ -1,0 +1,5 @@
+ select DATE(lpep_pickup_datetime) from
+    (select * from public."green_taxi_Nov2025"
+	where trip_distance <=100)
+	order by trip_distance 
+	desc limit 1;
